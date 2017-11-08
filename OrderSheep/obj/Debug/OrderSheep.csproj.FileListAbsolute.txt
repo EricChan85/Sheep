@@ -1,0 +1,12 @@
+F:\project201711\CSharp\OrderSheep\OrderSheep\bin\Debug\OrderSheep.exe.config
+F:\project201711\CSharp\OrderSheep\OrderSheep\bin\Debug\OrderSheep.exe
+F:\project201711\CSharp\OrderSheep\OrderSheep\bin\Debug\OrderSheep.pdb
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.csprojResolveAssemblyReference.cache
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.Properties.Resources.resources
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.csproj.GenerateResource.Cache
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.exe
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.pdb
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.FoodItems.resources
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.Rooms.resources
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.MainForm.resources
+F:\project201711\CSharp\OrderSheep\OrderSheep\obj\Debug\OrderSheep.Order.resources
