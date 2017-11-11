@@ -207,5 +207,19 @@ namespace OrderSheep.Dao
                 // code exits the using block.
             }
         }
+
+        public DataTable GetReportByTime(DateTime start, DateTime end) {
+            using (conn = new OleDbConnection(connectionString))
+            {
+                conn.Open();
+                DataTable dt = new DataTable();
+
+                string sql = "SELECT r.RoomName, s.StartTime, s.Amount, s.UserName, s.Mobile FROM SOrder s inner join Room r on s.RoomId=r.Id where s.State = 2 and s.StartTime > #" + start.ToString() + "# and s.StartTime < #" + end.ToString() + "#  order by s.Id desc;";
+                adapter = new OleDbDataAdapter(sql,
+                    conn);
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
     }
 }

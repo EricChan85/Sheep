@@ -56,8 +56,9 @@
             this.gvFoodList.Name = "gvFoodList";
             this.gvFoodList.ReadOnly = true;
             this.gvFoodList.RowTemplate.Height = 23;
-            this.gvFoodList.Size = new System.Drawing.Size(336, 356);
+            this.gvFoodList.Size = new System.Drawing.Size(347, 617);
             this.gvFoodList.TabIndex = 1;
+            this.gvFoodList.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.gvFoodList_CellPainting);
             // 
             // OId
             // 
@@ -97,12 +98,14 @@
             this.Amount.HeaderText = "总金额";
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
+            this.Amount.Width = 80;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(355, 13);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(365, 13);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(546, 398);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(830, 646);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // btnDelete
@@ -139,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 423);
+            this.ClientSize = new System.Drawing.Size(1207, 671);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnDelete);
@@ -158,13 +161,13 @@
 
         private System.Windows.Forms.DataGridView gvFoodList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.DataGridViewTextBoxColumn OId;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoodName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quality;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnPay;
-        private System.Windows.Forms.Button btnQuit;
     }
 }

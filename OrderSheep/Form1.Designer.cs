@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabRoom = new System.Windows.Forms.TabPage();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -38,11 +39,6 @@
             this.btnEditFood = new System.Windows.Forms.Button();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.gvFoodItems = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FIName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FIDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FICategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FIRetailPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.gvRoom = new System.Windows.Forms.DataGridView();
             this.RId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,12 +50,30 @@
             this.btnSearchRoom = new System.Windows.Forms.Button();
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnSearchReport = new System.Windows.Forms.Button();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblStartTime = new System.Windows.Forms.Label();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.gvReport = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FIName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FIDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FICategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FIRetailPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabRoom.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvFoodItems)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvRoom)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvReport)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -71,20 +85,32 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(863, 425);
+            this.tabControl1.Size = new System.Drawing.Size(800, 500);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 0;
             // 
             // tabRoom
             // 
+            this.tabRoom.Controls.Add(this.btnRefresh);
             this.tabRoom.Controls.Add(this.label1);
             this.tabRoom.Controls.Add(this.flowLayoutPanel1);
             this.tabRoom.Location = new System.Drawing.Point(4, 22);
             this.tabRoom.Name = "tabRoom";
             this.tabRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRoom.Size = new System.Drawing.Size(855, 399);
+            this.tabRoom.Size = new System.Drawing.Size(792, 474);
             this.tabRoom.TabIndex = 3;
             this.tabRoom.Text = "房间";
             this.tabRoom.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(303, 7);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 2;
+            this.btnRefresh.Text = "刷新";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // label1
             // 
@@ -100,7 +126,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 37);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(842, 356);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(779, 414);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tabPage2
@@ -113,7 +139,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(855, 399);
+            this.tabPage2.Size = new System.Drawing.Size(792, 474);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "菜单管理";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -173,47 +199,8 @@
             this.gvFoodItems.Name = "gvFoodItems";
             this.gvFoodItems.ReadOnly = true;
             this.gvFoodItems.RowTemplate.Height = 23;
-            this.gvFoodItems.Size = new System.Drawing.Size(842, 354);
+            this.gvFoodItems.Size = new System.Drawing.Size(782, 354);
             this.gvFoodItems.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // FIName
-            // 
-            this.FIName.DataPropertyName = "Name";
-            this.FIName.HeaderText = "菜名";
-            this.FIName.Name = "FIName";
-            this.FIName.ReadOnly = true;
-            this.FIName.Width = 160;
-            // 
-            // FIDescription
-            // 
-            this.FIDescription.DataPropertyName = "Description";
-            this.FIDescription.HeaderText = "描述";
-            this.FIDescription.Name = "FIDescription";
-            this.FIDescription.ReadOnly = true;
-            this.FIDescription.Width = 300;
-            // 
-            // FICategory
-            // 
-            this.FICategory.DataPropertyName = "Category";
-            this.FICategory.HeaderText = "类型";
-            this.FICategory.Name = "FICategory";
-            this.FICategory.ReadOnly = true;
-            this.FICategory.Width = 200;
-            // 
-            // FIRetailPrice
-            // 
-            this.FIRetailPrice.DataPropertyName = "RetailPrice";
-            this.FIRetailPrice.HeaderText = "单价";
-            this.FIRetailPrice.Name = "FIRetailPrice";
-            this.FIRetailPrice.ReadOnly = true;
             // 
             // tabPage4
             // 
@@ -225,7 +212,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(855, 399);
+            this.tabPage4.Size = new System.Drawing.Size(792, 474);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "房间管理";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -319,21 +306,164 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnSearchReport);
+            this.tabPage3.Controls.Add(this.dtpEnd);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.lblStartTime);
+            this.tabPage3.Controls.Add(this.dtpStart);
+            this.tabPage3.Controls.Add(this.gvReport);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(855, 399);
+            this.tabPage3.Size = new System.Drawing.Size(792, 474);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "查看报表";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnSearchReport
+            // 
+            this.btnSearchReport.Location = new System.Drawing.Point(392, 7);
+            this.btnSearchReport.Name = "btnSearchReport";
+            this.btnSearchReport.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchReport.TabIndex = 5;
+            this.btnSearchReport.Text = "查询";
+            this.btnSearchReport.UseVisualStyleBackColor = true;
+            this.btnSearchReport.Click += new System.EventHandler(this.btnSearchReport_Click);
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Location = new System.Drawing.Point(236, 6);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(139, 21);
+            this.dtpEnd.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(213, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "到";
+            // 
+            // lblStartTime
+            // 
+            this.lblStartTime.AutoSize = true;
+            this.lblStartTime.Location = new System.Drawing.Point(19, 12);
+            this.lblStartTime.Name = "lblStartTime";
+            this.lblStartTime.Size = new System.Drawing.Size(29, 12);
+            this.lblStartTime.TabIndex = 2;
+            this.lblStartTime.Text = "时间";
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Location = new System.Drawing.Point(54, 6);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(143, 21);
+            this.dtpStart.TabIndex = 1;
+            // 
+            // gvReport
+            // 
+            this.gvReport.AllowUserToAddRows = false;
+            this.gvReport.AllowUserToDeleteRows = false;
+            this.gvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.gvReport.Location = new System.Drawing.Point(6, 36);
+            this.gvReport.Name = "gvReport";
+            this.gvReport.ReadOnly = true;
+            this.gvReport.RowTemplate.Height = 23;
+            this.gvReport.ShowEditingIcon = false;
+            this.gvReport.Size = new System.Drawing.Size(843, 357);
+            this.gvReport.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "RoomName";
+            this.Column1.HeaderText = "房间";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "StartTime";
+            this.Column2.HeaderText = "日期";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Amount";
+            this.Column3.HeaderText = "金额";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "UserName";
+            this.Column4.HeaderText = "客户姓名";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Mobile";
+            this.Column5.HeaderText = "客户电话";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // FIName
+            // 
+            this.FIName.DataPropertyName = "Name";
+            this.FIName.HeaderText = "菜名";
+            this.FIName.Name = "FIName";
+            this.FIName.ReadOnly = true;
+            this.FIName.Width = 160;
+            // 
+            // FIDescription
+            // 
+            this.FIDescription.DataPropertyName = "Description";
+            this.FIDescription.HeaderText = "描述";
+            this.FIDescription.Name = "FIDescription";
+            this.FIDescription.ReadOnly = true;
+            this.FIDescription.Width = 300;
+            // 
+            // FICategory
+            // 
+            this.FICategory.DataPropertyName = "CatName";
+            this.FICategory.HeaderText = "类型";
+            this.FICategory.Name = "FICategory";
+            this.FICategory.ReadOnly = true;
+            this.FICategory.Width = 200;
+            // 
+            // FIRetailPrice
+            // 
+            this.FIRetailPrice.DataPropertyName = "RetailPrice";
+            this.FIRetailPrice.HeaderText = "单价";
+            this.FIRetailPrice.Name = "FIRetailPrice";
+            this.FIRetailPrice.ReadOnly = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 449);
+            this.ClientSize = new System.Drawing.Size(822, 527);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
+            this.ShowIcon = false;
             this.Text = "点餐页面";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
@@ -343,6 +473,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvFoodItems)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvRoom)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,17 +497,29 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.DataGridView gvRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FIName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FIDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FICategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FIRetailPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn RId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn RState;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSearchReport;
+        private System.Windows.Forms.DateTimePicker dtpEnd;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblStartTime;
+        private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.DataGridView gvReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FIName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FIDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FICategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FIRetailPrice;
     }
 }
 

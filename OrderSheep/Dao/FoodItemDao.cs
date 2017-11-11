@@ -22,7 +22,7 @@ namespace OrderSheep.Dao
 
             DataTable dt = new DataTable();
 
-            adapter = new OleDbDataAdapter("SELECT * FROM FoodItems where HasDeleted = false order by Id desc;", conn);
+            adapter = new OleDbDataAdapter("SELECT f.*, c.CatName FROM FoodItems f inner join FoodCategory c on f.Category=c.Id where f.HasDeleted = false order by f.Category;", conn);
             adapter.Fill(dt);
             conn.Close();
             return dt;

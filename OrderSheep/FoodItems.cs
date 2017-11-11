@@ -53,7 +53,8 @@ namespace OrderSheep
                 if (entity.PicExtension != "") {
                     string path = FileUtil.GetPicLocationById("food", entity.Id, entity.PicExtension);
                     txtPicLocation.Text = path;
-                    pbPicture.Image = Image.FromFile(path);
+                    Image image = FileUtil.OpenImage(path);
+                    pbPicture.Image = image;
                 }
                 
             }
@@ -69,7 +70,7 @@ namespace OrderSheep
                     return;
                 }
                 txtPicLocation.Text = openFileDialog1.FileName;
-                pbPicture.Image = Image.FromFile(openFileDialog1.FileName);
+                pbPicture.Image = FileUtil.OpenImage(openFileDialog1.FileName);
             }
         }
 

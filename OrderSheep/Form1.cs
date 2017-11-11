@@ -24,8 +24,19 @@ namespace OrderSheep
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //this.TopMost = true;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
+            DisplayRooms();
+
+            dtpStart.Value = DateTime.Now.AddDays(-7);
+            
+        }
+
+        private void DisplayRooms() {
             DataTable dt = rDao.GetAllRooms();
-            foreach (DataRow dr in dt.Rows) {
+            foreach (DataRow dr in dt.Rows)
+            {
                 GroupBox gb = new GroupBox();
                 gb.Width = 160;
                 gb.Height = 160;
@@ -36,7 +47,8 @@ namespace OrderSheep
                 b.Width = 150;
                 b.Height = 150;
                 b.Location = new Point(5, 5);
-                switch ((int)dr["State"]) { 
+                switch ((int)dr["State"])
+                {
                     case 1:
                         b.BackColor = Color.Green;
                         break;
@@ -53,8 +65,16 @@ namespace OrderSheep
                 gb.Controls.Add(b);
                 flowLayoutPanel1.Controls.Add(gb);
             }
-            
         }
+
+        #region "房间"
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            DisplayRooms();
+        }
+        #endregion
 
         private void btnRoom_click(object sender, EventArgs e) {
             Button b = (Button)sender;
@@ -79,7 +99,7 @@ namespace OrderSheep
             Order o = new Order(id);
             var result = o.ShowDialog();
             if (result == DialogResult.OK) {
-                if (o.ReturnValue == "pay") {
+                if (o.ReturnValue == "pay" || o.ReturnValue == "quit") {
                     b.BackColor = Color.Green;
                 }   
             }
@@ -183,10 +203,20 @@ namespace OrderSheep
 
         #endregion
 
-        
+        #region "报表"
+        private void btnSearchReport_Click(object sender, EventArgs e)
+        {
+            DataTable dt = soDao.GetReportByTime(dtpStart.Value, dtpEnd.Value);
+            gvReport.DataSource = dt.DefaultView;
+
+        }
+
+
+        #endregion
 
         
 
-        
+
+
     }
 }

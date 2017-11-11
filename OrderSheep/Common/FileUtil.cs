@@ -35,6 +35,15 @@ namespace OrderSheep.Common
             return true;
         }
 
+        public static Image OpenImage(string path) {
+            Image image;
+            using (Stream s = File.OpenRead(path)) {
+                image = Image.FromStream(s);
+                
+            }
+            return image;
+        }
+
     }
 
 }    
